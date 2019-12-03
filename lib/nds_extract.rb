@@ -113,7 +113,7 @@ array = []
   movie_index += 1 
  end 
 
-array 
+p array 
 end
 # p source[0][:movies] <----- PUT THAT IN NEW ARRAY
 #p source = [{:name=>"Byron Poodle", :movies=>[{:title=>"At the park"}, {:title=>"On the couch"}]}, 
