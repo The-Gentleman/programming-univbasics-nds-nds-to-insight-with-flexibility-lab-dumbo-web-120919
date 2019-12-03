@@ -106,9 +106,10 @@ def movies_with_directors_set(source)
 director_index = 0 
 movie_index = 0 
 array = []
+director_name = ource[director_index][:name] 
  
  while movie_index < source.count do 
-  array << source[director_index][:name] = source[director_index][:movies]
+  array << director_name = source[director_index][:movies]
   director_index += 1 
   movie_index += 1 
  end 
