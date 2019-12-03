@@ -108,7 +108,9 @@ movie_index = 0
 array = []
  
  while movie_index < source.count do 
-  array << movie_with_director_name(source[director_index][:name]) = source[director_index][:movies]
+  name = source[director_index][:name]
+  movies = source[director_index][:movies]
+  array << movies_with_director_key(name, movies)
   director_index += 1 
   movie_index += 1 
  end 
