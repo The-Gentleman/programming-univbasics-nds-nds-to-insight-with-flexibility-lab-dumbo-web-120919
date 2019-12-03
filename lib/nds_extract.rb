@@ -48,6 +48,16 @@ def movies_with_director_key(name, movies_collection)
   # Array of Hashes where each Hash represents a movie; however, they should all have a
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
+index = 0
+array = []
+
+  while index < movies_collection.count do 
+    movie_data = movies_collection[index]
+    array << movie_with_director_name(name, movie_data)
+    index += 1 
+  end
+  
+  array
 end
 
 
@@ -63,6 +73,22 @@ def gross_per_studio(collection)
   #
   # Hash whose keys are the studio names and whose values are the sum
   # total of all the worldwide_gross numbers for every movie in the input Hash
+ p collection 
+index = 0 
+hash = {}
+  
+  while index < collection.count do 
+    movie = collection[index]
+    if !hash[movie[:studio]]
+      hash[movie[:studio]] = movie[:worldwide_gross]
+   else 
+     hash[movie[:studio]] += movie[:worldwide_gross]
+   end
+   
+    index += 1 
+end
+
+hash
 end
 
 def movies_with_directors_set(source)
@@ -76,9 +102,26 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
-end
 
-# ----------------    End of Your Code Region --------------------
+director_index = 0 
+movie_index = 0 
+array = []
+ while movie_index < source.count do 
+  array << source[director_index][:name]
+  array << source[director_index][:movies]
+  director_index += 1 
+  movie_index += 1 
+ end 
+
+array 
+end
+# p source[0][:movies] <----- PUT THAT IN NEW ARRAY
+#p source = [{:name=>"Byron Poodle", :movies=>[{:title=>"At the park"}, {:title=>"On the couch"}]}, 
+# {:name=>"Nancy Drew":movies=>[{:title=>"Biting"}]}]
+# p source[0] = {:name=>"Byron Poodle", :movies=>[{:title=>"At the park"}, {:title=>"On the couch"}]}
+# p source[1] = {:name=>"Nancy Drew", :movies=>[{:title=>"Biting"}]}     
+
+# ----------------    End of Your Code Region--------------------
 # Don't edit the following code! Make the methods above work with this method
 # call code. You'll have to "see-saw" to get this to work!
 
